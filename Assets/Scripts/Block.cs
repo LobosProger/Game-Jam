@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     Vector2 initialPos;
     KeyHole holeWithin = null;
+    bool isInPosition = false;
 
     //Main key from which would be identified if block can be put into 
     public int keyID;
@@ -17,7 +18,8 @@ public class Block : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        this.transform.position = Input.mousePosition;
+        if(!isInPosition)
+            this.transform.position = Input.mousePosition;
     }
 
     public void OnMouseUp()
@@ -30,7 +32,10 @@ public class Block : MonoBehaviour
             if (!isCorrect)
                 this.transform.position = initialPos;
             else
+            {
+                isInPosition = true;
                 this.transform.position = holeWithin.transform.position;
+            }
         }
     }
 
