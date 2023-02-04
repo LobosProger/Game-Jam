@@ -25,7 +25,13 @@ public class Block : MonoBehaviour
         if (holeWithin == null)
             this.transform.position = initialPos;
         else
-            this.transform.position = holeWithin.transform.position;
+        {
+            bool isCorrect = holeWithin.OnHoleFill(this);
+            if (!isCorrect)
+                this.transform.position = initialPos;
+            else
+                this.transform.position = holeWithin.transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

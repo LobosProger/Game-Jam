@@ -11,8 +11,13 @@ public class KeyHole : MonoBehaviour
 
     }
 
-    public void OnHoleFill()
+    public bool OnHoleFill(Block block)
     {
-        Debug.Log("Hole Fill");
+        if(this.keyID == block.keyID)
+        {
+            Debug.Log("Fill");
+            return true;
+        }
+        return false;
     }
 }
