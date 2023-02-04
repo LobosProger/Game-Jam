@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class KeyHole : MonoBehaviour
 {
+    [HideInInspector] public Rect rect;
+
     void Start()
     {
-        
+        rect = this.GetComponent<RectTransform>().rect;
+        GeneralFunctions.AddHole(this);
     }
 
-    void Update()
+    private void Update()
     {
-        
+        Debug.Log(GeneralFunctions.CheckAllHoles());
+    }
+
+    public void OnHoleFill()
+    {
+        Debug.Log("Hole Fill");
     }
 }
