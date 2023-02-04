@@ -8,11 +8,6 @@ public class KeyHole : MonoBehaviour
     public bool isSolved { get; private set; }
     [SerializeField] private KeyHole parentHole;
 
-    void Start()
-    {
-
-    }
-
     public bool OnHoleFill(Block block)
     {
         if (parentHole != null && !parentHole.isSolved)
