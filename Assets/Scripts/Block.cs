@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public Vector2 initialPos;
-    Rect rectTransform;
+    Vector2 initialPos;
+    KeyHole holeWithin = null;
 
     //Main key from which would be identified if block can be put into 
-    public int key;
+    public int keyID;
 
     void Start()
     {
-        rectTransform = this.GetComponent<RectTransform>().rect;
         initialPos = this.transform.position;
     }
 
@@ -23,8 +22,25 @@ public class Block : MonoBehaviour
 
     public void OnMouseUp()
     {
-        bool isInHole = GeneralFunctions.CheckAllHoles();
-        if(!isInHole)
+        if (holeWithin == null)
             this.transform.position = initialPos;
+        else
+            this.transform.position = holeWithin.transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out KeyHole hole))
+        {
+            holeWithin = hole;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<KeyHole>())
+        {
+            holeWithin = null;
+        }
     }
 }
