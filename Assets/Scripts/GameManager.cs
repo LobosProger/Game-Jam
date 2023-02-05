@@ -14,12 +14,20 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(this.gameObject);
 	}
 
-	public static void LoadCurrentLevel() => singleton.StartCoroutine(singleton.LoadLevel());
+	public static void LoadCurrentLevel() => singleton.StartCoroutine(singleton.LoadLevel(2f));
 
-	private IEnumerator LoadLevel()
+	public static void LoadNextLevel()
+	{
+		LevelManager.SwitchNextLevel();
+		singleton.StartCoroutine(singleton.LoadLevel(1f));
+	}
+
+	private IEnumerator LoadLevel(float time)
 	{
 		CanvasManager.singleton.HideGameplay();
 		yield return new WaitForSecondsRealtime(2f);
-		SceneManager.LoadScene(LevelManager.currentLevel.ToString());
+		SceneManager.LoadScene(LevelManager.GetCurrentLevel().ToString());
 	}
+
+
 }

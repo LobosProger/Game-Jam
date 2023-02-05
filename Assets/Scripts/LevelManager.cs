@@ -8,13 +8,16 @@ public class LevelManager : MonoBehaviour
 {
 	#region Setuping
 	private const string LevelForLoadingPlayerPrefs = "Level";
-	[SerializeField] private Text textToShoowingCurrentLevel;
+	private const int maxAmountOfLevels = 3;
+	//[SerializeField] private Text textToShoowingCurrentLevel;
 	#endregion
 
-	private static bool isInitializedGame;
-	public static int currentLevel;
+	//private static bool isInitializedGame;
+	private static int currentLevelForSwitching;
+	private static int currentLevel => (currentLevelForSwitching % 3) + 1;
 
-	private void Start()
+
+	/*private void Start()
 	{
 		if (!isInitializedGame)
 		{
@@ -23,13 +26,11 @@ public class LevelManager : MonoBehaviour
 		}
 
 		textToShoowingCurrentLevel.text = "Level " + currentLevel.ToString();
-	}
+	}*/
 
-	public static void LoadNextLevel()
-	{
-		//currentLevel++;
-		//PlayerPrefs.SetInt(LevelForLoadingPlayerPrefs, currentLevel);
-	}
+	public static void SwitchNextLevel() => currentLevelForSwitching++;
+
+	public static int GetCurrentLevel() => currentLevel;
 
 	public static void LoadCurrentLevel() => SceneManager.LoadScene(currentLevel.ToString());
 }

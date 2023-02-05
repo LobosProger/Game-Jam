@@ -55,11 +55,13 @@ public class GameMechanics : MonoBehaviour
 	{
 		Debug.Log("Win");
 		gameTimer.Stop();
+		GameManager.LoadNextLevel();
 	}
 
 	void GameOver()
 	{
 		Debug.Log("GameOver");
+		GameManager.LoadCurrentLevel();
 	}
 }
 
