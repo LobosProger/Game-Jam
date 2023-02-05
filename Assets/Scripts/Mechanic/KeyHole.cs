@@ -20,6 +20,7 @@ public class KeyHole : MonoBehaviour
 
         onHoleFill += OnSuccessfulHoleFill;
         onHoleFill += EffectOnHoleFill;
+        onHoleFill += GameMechanics.instance.SolveHole;
 
         onHoleNoFit += GameMechanics.instance.LiveDecrease;
         onHoleNoFit += GameMechanics.instance.IncorrectFitEffect;
@@ -28,6 +29,9 @@ public class KeyHole : MonoBehaviour
     public bool OnHoleFillAttempt(Block block)
     {
         if (parentHole != null && !parentHole.isSolved)
+            return false;
+
+        if (isSolved)
             return false;
 
         if(this.keyID == block.keyID)
@@ -42,7 +46,6 @@ public class KeyHole : MonoBehaviour
 
     private void OnSuccessfulHoleFill()
     {
-        Debug.Log("Fill");
         isSolved = true;
     }
 
