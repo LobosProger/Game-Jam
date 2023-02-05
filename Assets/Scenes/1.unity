@@ -617,6 +617,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1169134560}
     m_Modifications:
+    - target: {fileID: 611713056, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
+      propertyPath: keyID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6667135692827939090, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1086,7 +1090,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 495885535}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1292,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927902611123199211, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: keyID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1409,6 +1413,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
+--- !u!95 &1845491375 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1976950185937260608, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+  m_PrefabInstance: {fileID: 4927902609839065867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2000558715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,14 +1496,6 @@ PrefabInstance:
     - target: {fileID: 4049327485399202514, guid: 50b1b9bf27ef3cc4b98aa2abe9ab745c, type: 3}
       propertyPath: m_Name
       value: Arrow
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399071080584392260, guid: 50b1b9bf27ef3cc4b98aa2abe9ab745c, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399071080584392260, guid: 50b1b9bf27ef3cc4b98aa2abe9ab745c, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 6475037273747820635, guid: 50b1b9bf27ef3cc4b98aa2abe9ab745c, type: 3}
       propertyPath: m_Pivot.x
@@ -1703,6 +1704,34 @@ PrefabInstance:
     - target: {fileID: 4927902611123199191, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1845491375}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199210, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4927902611123199211, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: keyID

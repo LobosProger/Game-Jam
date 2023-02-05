@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+	private static Camera mainCamera;
+
 	Vector2 initialPos;
 	Vector2 destinationPos;
 
@@ -16,6 +18,9 @@ public class Block : MonoBehaviour
 
 	void Start()
 	{
+		if (mainCamera == null)
+			mainCamera = Camera.main;
+
 		initialPos = this.transform.position;
 		destinationPos = initialPos;
 	}
@@ -29,7 +34,13 @@ public class Block : MonoBehaviour
 	public void OnMouseDrag()
 	{
 		if (!isInPosition)
+		{
 			this.transform.position = Input.mousePosition;
+
+			var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+			screenPoint.z = 10.0f; //distance of the plane from the camera
+			transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+		}
 		isDragged = true;
 	}
 
@@ -46,6 +57,7 @@ public class Block : MonoBehaviour
 			{
 				isInPosition = true;
 				destinationPos = holeWithin.transform.position;
+				GetComponent<ParticleSystem>().Play();
 			}
 		}
 		isDragged = false;
