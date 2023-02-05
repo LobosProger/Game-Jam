@@ -18,6 +18,7 @@ public class KeyHole : MonoBehaviour
         onHoleNoFit = new GameAction();
 
         onHoleFill += OnSuccessfulHoleFill;
+        onHoleFill += EffectOnHoleFill;
     }
 
     public bool OnHoleFill(Block block)
@@ -40,5 +41,10 @@ public class KeyHole : MonoBehaviour
     {
         Debug.Log("Fill");
         isSolved = true;
+    }
+
+    private void EffectOnHoleFill()
+    {
+
     }
 }
