@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class KeyHole : MonoBehaviour
 {
@@ -8,17 +9,45 @@ public class KeyHole : MonoBehaviour
     public bool isSolved { get; private set; }
     [SerializeField] private KeyHole parentHole;
 
-    public bool OnHoleFill(Block block)
+    private GameAction onHoleFill;
+    private GameAction onHoleNoFit;
+
+    private void Start()
+    {
+        onHoleFill = new GameAction();
+        onHoleNoFit = new GameAction();
+
+        onHoleFill += OnSuccessfulHoleFill;
+        onHoleFill += EffectOnHoleFill;
+
+        onHoleNoFit += GameMechanics.instance.LiveDecrease;
+        onHoleNoFit += GameMechanics.instance.IncorrectFitEffect;
+    }
+
+    public bool OnHoleFillAttempt(Block block)
     {
         if (parentHole != null && !parentHole.isSolved)
-            return false;
+            goto NoFit;
 
         if(this.keyID == block.keyID)
         {
-            Debug.Log("Fill");
-            isSolved = true;
+            onHoleFill.Invoke();
             return true;
         }
+
+        NoFit:
+        onHoleNoFit.Invoke();
         return false;
+    }
+
+    private void OnSuccessfulHoleFill()
+    {
+        Debug.Log("Fill");
+        isSolved = true;
+    }
+
+    private void EffectOnHoleFill()
+    {
+
     }
 }
