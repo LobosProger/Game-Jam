@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class GameMechanics : MonoBehaviour
 {
     public static GameMechanics instance;
     public float gameTime = 60f;
+    public Text timerText;
 
-    List<KeyHole> holes;
     Timer gameTimer;
     int lives = 3;
     int unsolvedKeyHolesAmount;
@@ -20,13 +21,13 @@ public class GameMechanics : MonoBehaviour
         instance = this;
         gameTimer = new Timer(gameTime, GameOver);
 
-        holes = new List<KeyHole>();
         //DontDestroyOnLoad(this.gameObject);
     }
 
     public void Update()
     {
         gameTimer.Update();
+        timerText.text = gameTimer.ToString();
     }
 
     public void LiveDecrease()
@@ -89,5 +90,12 @@ public class Timer
     public void Stop()
     {
         isRunning = false;
+    }
+
+    public override string ToString()
+    {
+        int minutes = (int)(timeRemaining / 60);
+        int seconds = (int)(timeRemaining % 60);
+        return minutes.ToString() + ":" + seconds.ToString();
     }
 }

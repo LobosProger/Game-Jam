@@ -20,6 +20,7 @@ public class KeyHole : MonoBehaviour
 
         onHoleFill += OnSuccessfulHoleFill;
         onHoleFill += EffectOnHoleFill;
+        onHoleFill += GameMechanics.instance.SolveHole;
 
         onHoleNoFit += GameMechanics.instance.LiveDecrease;
         onHoleNoFit += GameMechanics.instance.IncorrectFitEffect;

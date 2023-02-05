@@ -617,6 +617,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1169134560}
     m_Modifications:
+    - target: {fileID: 611713056, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
+      propertyPath: keyID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6667135692827939090, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -880,6 +884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199211, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: keyID
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
@@ -915,6 +923,18 @@ PrefabInstance:
     - target: {fileID: 4371290252218571728, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 6.3602
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199189, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927902611123199189, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a5efab761fd579a4fb2cd93d2dd5d147, type: 3}
+    - target: {fileID: 4927902611123199189, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4927902611123199190, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: m_Pivot.x
@@ -1003,10 +1023,6 @@ PrefabInstance:
     - target: {fileID: 4927902611123199191, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: m_Name
       value: Block (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4927902611123199211, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
-      propertyPath: keyID
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1173,7 +1189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9b12c9fef5a7a498f62a8162a20041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 10
+  gameTime: 90
+  timerText: {fileID: 0}
 --- !u!4 &1201891163
 Transform:
   m_ObjectHideFlags: 0
@@ -1202,6 +1219,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1169134560}
     m_Modifications:
+    - target: {fileID: 1921608646215645055, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3252ced3a4d02e0479ed761cb90bbf7d, type: 3}
+    - target: {fileID: 4371290252218571728, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 158.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371290252218571728, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 82.0388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371290252218571728, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000048876
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371290252218571728, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.3602
+      objectReference: {fileID: 0}
     - target: {fileID: 4927902611123199190, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1292,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927902611123199211, guid: 82efa7a278ed25a48a376c6b10cdada4, type: 3}
       propertyPath: keyID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1723,6 +1760,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1169134560}
     m_Modifications:
+    - target: {fileID: 611713056, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
+      propertyPath: keyID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6667135692827939090, guid: 743380d8614b7cf4db8fa6458151b2d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
