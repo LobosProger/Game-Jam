@@ -1,32 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-	#region Setuping
-	private const string LevelForLoadingPlayerPrefs = "Level";
-	[SerializeField] private Text textToShoowingCurrentLevel;
-	#endregion
+	public static GameManager singleton;
 
-	private static bool isInitializedGame;
-	private static int currentLevel;
+	//public bool isPlayerOnMainMenu = true;
 
-	private void Start()
+	private void Awake()
 	{
-		if (!isInitializedGame)
-		{
-			isInitializedGame = true;
-			currentLevel = PlayerPrefs.GetInt(LevelForLoadingPlayerPrefs, 1);
-		}
-
-		textToShoowingCurrentLevel.text = "Level " + currentLevel.ToString();
+		singleton = this;
+		DontDestroyOnLoad(this.gameObject);
 	}
 
-	public static void SwitchNextLevel()
+	public static void LoadCurrentLevel() => singleton.StartCoroutine(singleton.LoadLevel());
+
+	private IEnumerator LoadLevel()
 	{
-		currentLevel++;
-		PlayerPrefs.SetInt(LevelForLoadingPlayerPrefs, currentLevel);
+		CanvasManager.singleton.HideGameplay();
+		yield return new WaitForSecondsRealtime(2f);
+		SceneManager.LoadScene(LevelManager.currentLevel.ToString());
 	}
 }
