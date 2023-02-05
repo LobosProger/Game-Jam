@@ -31,6 +31,9 @@ public class KeyHole : MonoBehaviour
         if (parentHole != null && !parentHole.isSolved)
             return false;
 
+        if (isSolved)
+            return false;
+
         if(this.keyID == block.keyID)
         {
             onHoleFill.Invoke();
@@ -43,7 +46,6 @@ public class KeyHole : MonoBehaviour
 
     private void OnSuccessfulHoleFill()
     {
-        Debug.Log("Fill");
         isSolved = true;
     }
 

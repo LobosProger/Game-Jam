@@ -23,7 +23,10 @@ public class Block : MonoBehaviour
 	private void Update()
 	{
 		if (!isDragged)
+        {
 			this.transform.position = Vector2.Lerp(this.transform.position, destinationPos, Time.deltaTime * 6f);
+
+		}
 	}
 
 	public void OnMouseDrag()
