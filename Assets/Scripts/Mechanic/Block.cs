@@ -5,8 +5,11 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     Vector2 initialPos;
+    Vector2 destinationPos;
+
     KeyHole holeWithin = null;
     bool isInPosition = false;
+    bool isDragged;
 
     //Main key from which would be identified if block can be put into 
     public int keyID;
@@ -14,29 +17,38 @@ public class Block : MonoBehaviour
     void Start()
     {
         initialPos = this.transform.position;
+        destinationPos = initialPos;
+    }
+
+    private void Update()
+    {
+        if(!isDragged)
+            this.transform.position = Vector2.Lerp(this.transform.position, destinationPos, Time.deltaTime * 2f);
     }
 
     public void OnMouseDrag()
     {
         if(!isInPosition)
             this.transform.position = Input.mousePosition;
+        isDragged = true;
     }
 
     public void OnMouseUp()
     {
         if (holeWithin == null)
-            this.transform.position = initialPos;
+            destinationPos = initialPos;
         else
         {
             bool isCorrect = holeWithin.OnHoleFillAttempt(this);
             if (!isCorrect)
-                this.transform.position = initialPos;
+                destinationPos = initialPos;
             else
             {
                 isInPosition = true;
-                this.transform.position = holeWithin.transform.position;
+                destinationPos = holeWithin.transform.position;
             }
         }
+        isDragged = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -16,6 +16,7 @@ public class KeyHole : MonoBehaviour
     {
         onHoleFill = new GameAction();
         onHoleNoFit = new GameAction();
+        GameMechanics.instance.AddKeyHole();
 
         onHoleFill += OnSuccessfulHoleFill;
         onHoleFill += EffectOnHoleFill;
@@ -27,7 +28,7 @@ public class KeyHole : MonoBehaviour
     public bool OnHoleFillAttempt(Block block)
     {
         if (parentHole != null && !parentHole.isSolved)
-            goto NoFit;
+            return false;
 
         if(this.keyID == block.keyID)
         {
@@ -35,7 +36,6 @@ public class KeyHole : MonoBehaviour
             return true;
         }
 
-        NoFit:
         onHoleNoFit.Invoke();
         return false;
     }
