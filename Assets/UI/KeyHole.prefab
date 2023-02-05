@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 611713056}
   - component: {fileID: 611713057}
   - component: {fileID: 611713058}
+  - component: {fileID: 7729408931807169656}
   m_Layer: 5
   m_Name: KeyHole
   m_TagString: Untagged
@@ -69,8 +70,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: a5efab761fd579a4fb2cd93d2dd5d147, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 6
 --- !u!114 &611713056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5737ccf2eb44bc140abd20d073649fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyID: 2
+  parentHole: {fileID: 0}
 --- !u!50 &611713057
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +141,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 133.05, y: 135}
   m_EdgeRadius: 0
+--- !u!114 &7729408931807169656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667135692827939091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.42951223, g: 0.5377358, b: 0.4396582, a: 1}
+  m_EffectDistance: {x: 0, y: -8}
+  m_UseGraphicAlpha: 1
