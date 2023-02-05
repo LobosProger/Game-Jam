@@ -8,8 +8,10 @@ public class GameMechanics : MonoBehaviour
     public static GameMechanics instance;
     public float gameTime = 60f;
 
+    List<KeyHole> holes;
     Timer gameTimer;
     int lives = 3;
+    int unsolvedKeyHolesAmount;
 
     void Awake()
     {
@@ -17,6 +19,9 @@ public class GameMechanics : MonoBehaviour
             Debug.Log("GameMechanics have second example");
         instance = this;
         gameTimer = new Timer(gameTime, GameOver);
+
+        holes = new List<KeyHole>();
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     public void Update()
@@ -36,6 +41,21 @@ public class GameMechanics : MonoBehaviour
 
     }
 
+    public void AddKeyHole() => unsolvedKeyHolesAmount++;
+
+    public void SolveHole()
+    {
+        unsolvedKeyHolesAmount--;
+        if (unsolvedKeyHolesAmount <= 0)
+            Win();
+    }
+
+    void Win()
+    {
+        Debug.Log("Win");
+        gameTimer.Stop();
+    }
+
     void GameOver()
     {
         Debug.Log("GameOver");
@@ -46,18 +66,28 @@ public class GameMechanics : MonoBehaviour
 public class Timer
 {
     public float timeRemaining;
+    bool isRunning = true;
     GameAction action;
 
     public Timer(float time, Action action)
     {
         timeRemaining = time;
         this.action = new GameAction(action);
+        this.action += delegate () { isRunning = false; };
     }
 
     public void Update()
     {
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining <= 0)
-            action.Invoke();
+        if (isRunning)
+        {
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining <= 0)
+                action.Invoke(); 
+        }
+    }
+
+    public void Stop()
+    {
+        isRunning = false;
     }
 }
