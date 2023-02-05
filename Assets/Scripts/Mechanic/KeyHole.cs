@@ -21,7 +21,7 @@ public class KeyHole : MonoBehaviour
         onHoleFill += EffectOnHoleFill;
     }
 
-    public bool OnHoleFill(Block block)
+    public bool OnHoleFillAttempt(Block block)
     {
         if (parentHole != null && !parentHole.isSolved)
             goto NoFit;

@@ -28,7 +28,7 @@ public class Block : MonoBehaviour
             this.transform.position = initialPos;
         else
         {
-            bool isCorrect = holeWithin.OnHoleFill(this);
+            bool isCorrect = holeWithin.OnHoleFillAttempt(this);
             if (!isCorrect)
                 this.transform.position = initialPos;
             else
