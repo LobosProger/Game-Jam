@@ -25,7 +25,7 @@ public class Block : MonoBehaviour
 		if (!isDragged)
         {
 			this.transform.position = Vector2.Lerp(this.transform.position, destinationPos, Time.deltaTime * 6f);
-
+			//MovementRotation();
 		}
 	}
 
@@ -53,6 +53,11 @@ public class Block : MonoBehaviour
 		}
 		isDragged = false;
 	}
+
+	void MovementRotation()
+    {
+
+    }
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
