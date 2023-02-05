@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Block : MonoBehaviour
 {
@@ -35,8 +36,6 @@ public class Block : MonoBehaviour
 	{
 		if (!isInPosition)
 		{
-			this.transform.position = Input.mousePosition;
-
 			var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 			screenPoint.z = 10.0f; //distance of the plane from the camera
 			transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
@@ -58,6 +57,7 @@ public class Block : MonoBehaviour
 				isInPosition = true;
 				destinationPos = holeWithin.transform.position;
 				GetComponent<ParticleSystem>().Play();
+				GetComponent<Image>().raycastTarget = false;
 			}
 		}
 		isDragged = false;
