@@ -28,8 +28,8 @@ public class Block : MonoBehaviour
 
 	private void Update()
 	{
-		if (!isDragged)
-        {
+		if (!isDragged && !isInPosition)
+		{
 			this.transform.position = Vector2.Lerp(this.transform.position, destinationPos, Time.deltaTime * 6f);
 			//MovementRotation();
 		}
@@ -41,7 +41,7 @@ public class Block : MonoBehaviour
 		{
 			var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 			screenPoint.z = 10.0f; //distance of the plane from the camera
-			transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+			transform.position = mainCamera.ScreenToWorldPoint(screenPoint);
 		}
 		isDragged = true;
 	}
@@ -58,18 +58,19 @@ public class Block : MonoBehaviour
 			else
 			{
 				isInPosition = true;
-				destinationPos = holeWithin.transform.position;
+				//destinationPos = holeWithin.transform.position;
+				transform.position = holeWithin.transform.position;
 				GetComponent<ParticleSystem>().Play();
-				GetComponent<Image>().raycastTarget = false;
+				GetComponent<Image>().raycastTarget = false; //TODO: ! Баг, исправить
 			}
 		}
 		isDragged = false;
 	}
 
 	void MovementRotation()
-    {
+	{
 
-    }
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
