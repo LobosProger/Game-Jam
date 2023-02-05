@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Path
 {
-    [SerializeField]
+    [SerializeField, HideInInspector]
     List<Vector2> points;
 
     public Path(Vector2 centre)

@@ -33,10 +33,10 @@ public class PathEditor : Editor
     {
         Debug.Log("Path created");
         creator = (PathCreator)target;
+
         if(creator.path == null)
-        {
             creator.CreatePath();
-        }
+
         path = creator.path;
     }
 }

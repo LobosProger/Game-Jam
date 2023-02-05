@@ -19,6 +19,9 @@ public class KeyHole : MonoBehaviour
 
         onHoleFill += OnSuccessfulHoleFill;
         onHoleFill += EffectOnHoleFill;
+
+        onHoleNoFit += GameMechanics.instance.LiveDecrease;
+        onHoleNoFit += GameMechanics.instance.IncorrectFitEffect;
     }
 
     public bool OnHoleFillAttempt(Block block)
