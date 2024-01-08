@@ -3,11 +3,11 @@
 Simple game, which prepared just for 1 day to hackathon. The topic of hackathon was "Roots" and with participation with my friend we decided to develop math based game, 
 in which player need to place blocks related to topic into cells for a time. For example, topic integral - need to place related symbols, math function, which expresses integral
 
-## Gameplay video
+# Gameplay video
 
 https://github.com/LobosProger/Game-Jam/assets/78168123/917b2897-63a0-4cbe-b11c-12fc5865a2c9
 
-## Screenshots
+# Screenshots
 
 ![Image Sequence_007_000023h42m2024-01-08](https://github.com/LobosProger/Game-Jam/assets/78168123/25389073-82b3-4efb-92b9-38a36715265a)
 
