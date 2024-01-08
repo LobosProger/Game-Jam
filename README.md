@@ -1,7 +1,8 @@
 # Roots of math
 
-Simple game, which prepared just for 1 day to hackathon Global Game Jam. The topic of hackathon was "Roots" and with participation with my friend we decided to develop math based game, 
-in which player need to place blocks related to topic into cells for a time. For example, topic integral - need to place related symbols, math function, which expresses integral.
+* Simple game, which prepared just for 1 day to hackathon Global Game Jam.
+* The topic of hackathon was "Roots" and with participation with my friend we decided to develop math based game, in which player need to place blocks related to topic into cells for a time.
+* For example, topic integral - need to place related symbols, math function, which expresses integral.
 
 # Gameplay video
 
